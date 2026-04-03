@@ -1,99 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday 🎉</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday 💖</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      color: white;
-    }
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
 
-    .page {
-      display: none;
-      height: 100vh;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      padding: 20px;
-    }
+.page {
+  display: none;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+  animation: fade 1s;
+}
 
-    .active {
-      display: flex;
-    }
+.active {
+  display: flex;
+}
 
-    button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      border: none;
-      background: white;
-      color: black;
-      font-size: 16px;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-  </style>
+@keyframes fade {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+p {
+  font-size: 1.2rem;
+  max-width: 300px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 25px;
+  border: none;
+  background: white;
+  color: black;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+/* Floating hearts */
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(100vh); opacity: 1; }
+  100% { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Page 1 -->
-  <div class="page active" style="background-color: pink;">
-    <h1>Hey Bestie 💕</h1>
-    <p>I have something special for you...</p>
-    <button onclick="nextPage()">Tap here 💖</button>
-  </div>
+<!-- Hearts -->
+<script>
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "💖";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  document.body.appendChild(heart);
 
-  <!-- Page 2 -->
-  <div class="page" style="background-color: red;">
-    <h1>Happy Birthday 🎂</h1>
-    <p>You mean the world to me ❤️</p>
-    <button onclick="nextPage()">Next 🎉</button>
-  </div>
+  setTimeout(() => {
+    heart.remove();
+  }, 5000);
+}, 300);
+</script>
 
-  <!-- Page 3 -->
-  <div class="page" style="background-color: orange;">
-    <h1>You are Amazing ✨</h1>
-    <p>Never forget how special you are!</p>
-    <button onclick="nextPage()">Next 💫</button>
-  </div>
+<!-- Page 1 -->
+<div class="page active" style="background: linear-gradient(pink, hotpink); color: white;">
+  <h1>Hey Beautiful 💕</h1>
+  <p>I made something special just for you...</p>
+  <button onclick="nextPage()">Tap 💖</button>
+</div>
 
-  <!-- Page 4 -->
-  <div class="page" style="background-color: purple;">
-    <h1>Thank You 💜</h1>
-    <p>For always being there for me 🫶</p>
-    <button onclick="nextPage()">Next 🎁</button>
-  </div>
+<!-- Page 2 -->
+<div class="page" style="background: linear-gradient(red, darkred); color: white;">
+  <h1>Happy Birthday 🎂</h1>
+  <p>You are one of the most important people in my life ❤️</p>
+  <button onclick="nextPage()">Next 🎉</button>
+</div>
 
-  <!-- Page 5 -->
-  <div class="page" style="background-color: yellow; color: black;">
-    <h1>I Love You 💛</h1>
-    <p>Hope your day is as beautiful as you!</p>
-    <button onclick="nextPage()">Last One 👀</button>
-  </div>
+<!-- Page 3 -->
+<div class="page" style="background: linear-gradient(orange, gold); color: black;">
+  <h1>You Matter ✨</h1>
+  <p>Your smile can literally fix my whole day 😊</p>
+  <button onclick="nextPage()">Next 💫</button>
+</div>
 
-  <!-- Final Page -->
-  <div class="page" style="background-color: green;">
-    <h1>Enjoy Your Day 🎉</h1>
-    <p>This is just the beginning of an amazing year ahead 💚</p>
-  </div>
+<!-- Page 4 -->
+<div class="page" style="background: linear-gradient(purple, indigo); color: white;">
+  <h1>Thank You 💜</h1>
+  <p>For every laugh, every moment, every memory 🫶</p>
+  <button onclick="nextPage()">Next 🎁</button>
+</div>
 
-  <script>
-    let currentPage = 0;
-    const pages = document.querySelectorAll(".page");
+<!-- Page 5 -->
+<div class="page" style="background: linear-gradient(yellow, orange); color: black;">
+  <h1>I Love You 💛</h1>
+  <p>You deserve all the happiness in the world 💫</p>
+  <button onclick="nextPage()">Last One 👀</button>
+</div>
 
-    function nextPage() {
-      pages[currentPage].classList.remove("active");
-      currentPage++;
-      if (currentPage < pages.length) {
-        pages[currentPage].classList.add("active");
-      }
-    }
-  </script>
+<!-- Final Page -->
+<div class="page" style="background: linear-gradient(green, teal); color: white;">
+  <h1>Enjoy Your Day 🎉</h1>
+  <p>This year is going to be YOUR year 💚</p>
+</div>
+
+<script>
+let currentPage = 0;
+const pages = document.querySelectorAll(".page");
+
+function nextPage() {
+  pages[currentPage].classList.remove("active");
+  currentPage++;
+  if (currentPage < pages.length) {
+    pages[currentPage].classList.add("active");
+  }
+}
+</script>
 
 </body>
 </html>
