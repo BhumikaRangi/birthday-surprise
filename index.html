@@ -13,9 +13,12 @@ body {
   overflow: hidden;
 }
 
+/* iPhone FIX */
 .page {
   display: none;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100dvh;
+  box-sizing: border-box;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -42,24 +45,23 @@ p {
 
 button {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 25px;
   border: none;
   background: white;
   color: black;
-  border-radius: 20px;
+  border-radius: 25px;
   cursor: pointer;
 }
 
 /* Images */
 img {
   width: 220px;
-  height: auto;
   border-radius: 20px;
   margin-bottom: 15px;
   box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
-/* Floating hearts */
+/* Hearts */
 .heart {
   position: absolute;
   font-size: 20px;
@@ -70,11 +72,25 @@ img {
   0% { transform: translateY(100vh); opacity: 1; }
   100% { transform: translateY(-10vh); opacity: 0; }
 }
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  animation: fall 3s linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateY(-10vh) rotate(0); }
+  100% { transform: translateY(100vh) rotate(360deg); }
+}
 </style>
 </head>
 
 <body>
 
+<!-- HEARTS -->
 <script>
 setInterval(() => {
   const heart = document.createElement("div");
@@ -87,17 +103,17 @@ setInterval(() => {
 }, 300);
 </script>
 
-<!-- Page 1 (NO IMAGE) -->
+<!-- PAGE 1 -->
 <div class="page active" style="background: linear-gradient(pink, hotpink); color: white;">
   <h1>Hey... 💕</h1>
   <p>This is a little surprise for you 🎁</p>
   <button onclick="nextPage()">Tap 💖</button>
 </div>
 
-<!-- Page 2 -->
+<!-- PAGE 2 -->
 <div class="page" style="background: linear-gradient(red, darkred); color: white;">
   <img src="pic2.jpg">
-  <h1>From Strangers ➝ Best Friends ❤️</h1>
+  <h1>Happy Birthday Sristhi 🎂</h1>
   <p>
     We were unknown to each other in school...  
     and honestly, I’m really glad we met.  
@@ -109,7 +125,7 @@ setInterval(() => {
   <button onclick="nextPage()">Next ✨</button>
 </div>
 
-<!-- Page 3 -->
+<!-- PAGE 3 -->
 <div class="page" style="background: linear-gradient(orange, gold); color: black;">
   <img src="pic3.jpg">
   <h1>Thank You 🫶</h1>
@@ -123,7 +139,7 @@ setInterval(() => {
   <button onclick="nextPage()">Next 💫</button>
 </div>
 
-<!-- Page 4 -->
+<!-- PAGE 4 (LAST PAGE) -->
 <div class="page" style="background: linear-gradient(purple, indigo); color: white;">
   <img src="pic4.jpg">
   <h1>Forever Grateful 💜</h1>
@@ -141,11 +157,29 @@ setInterval(() => {
 let currentPage = 0;
 const pages = document.querySelectorAll(".page");
 
+function launchConfetti() {
+  for (let i = 0; i < 60; i++) {
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random() * 100 + "vw";
+    c.style.background = `hsl(${Math.random()*360},100%,50%)`;
+    document.body.appendChild(c);
+
+    setTimeout(() => c.remove(), 3000);
+  }
+}
+
 function nextPage() {
   pages[currentPage].classList.remove("active");
   currentPage++;
+
   if (currentPage < pages.length) {
     pages[currentPage].classList.add("active");
+
+    // LAST PAGE CONFETTI 🎆
+    if (currentPage === pages.length - 1) {
+      launchConfetti();
+    }
   }
 }
 </script>
