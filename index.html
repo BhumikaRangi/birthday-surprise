@@ -5,66 +5,80 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday 💖</title>
 
+<!-- Better Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: 'Poppins', sans-serif;
   text-align: center;
   overflow: hidden;
 }
 
-/* iPhone FIX */
+/* FIXED MOBILE LAYOUT */
 .page {
   display: none;
-  min-height: 100vh;
   height: 100dvh;
+  width: 100%;
+  overflow-y: auto;   /* ENABLE SCROLL */
   box-sizing: border-box;
+  padding: 30px 20px;
+  animation: fade 0.8s;
+}
+
+.page-content {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  padding: 20px;
-  animation: fade 1s;
 }
 
 .active {
-  display: flex;
+  display: block;
 }
 
 @keyframes fade {
-  from {opacity: 0; transform: scale(0.95);}
-  to {opacity: 1; transform: scale(1);}
+  from {opacity: 0; transform: translateY(20px);}
+  to {opacity: 1; transform: translateY(0);}
 }
 
-h1 { font-size: 2.2rem; }
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
 
 p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   max-width: 320px;
   line-height: 1.6;
 }
 
 button {
-  margin-top: 20px;
+  margin-top: 25px;
   padding: 12px 25px;
   border: none;
   background: white;
   color: black;
-  border-radius: 25px;
+  border-radius: 30px;
+  font-size: 14px;
   cursor: pointer;
 }
 
 /* Images */
 img {
-  width: 220px;
+  width: 200px;
+  max-width: 80%;
   border-radius: 20px;
   margin-bottom: 15px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* Hearts */
 .heart {
   position: absolute;
-  font-size: 20px;
+  font-size: 18px;
   animation: float 5s linear infinite;
 }
 
@@ -76,8 +90,8 @@ img {
 /* Confetti */
 .confetti {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   animation: fall 3s linear infinite;
 }
 
@@ -100,57 +114,65 @@ setInterval(() => {
   document.body.appendChild(heart);
 
   setTimeout(() => heart.remove(), 5000);
-}, 300);
+}, 400);
 </script>
 
 <!-- PAGE 1 -->
 <div class="page active" style="background: linear-gradient(pink, hotpink); color: white;">
-  <h1>Hey... 💕</h1>
-  <p>This is a little surprise for you 🎁</p>
-  <button onclick="nextPage()">Tap 💖</button>
+  <div class="page-content">
+    <h1>Hey... 💕</h1>
+    <p>This is a little surprise for you 🎁</p>
+    <button onclick="nextPage()">Tap 💖</button>
+  </div>
 </div>
 
 <!-- PAGE 2 -->
 <div class="page" style="background: linear-gradient(red, darkred); color: white;">
-  <img src="pic2.jpg">
-  <h1>Happy Birthday Sristhi 🎂</h1>
-  <p>
-    We were unknown to each other in school...  
-    and honestly, I’m really glad we met.  
-    I’m so glad you took the first step to talk to me.  
-    I’m glad you were always there beside me.  
-    It’s like you predicted the future...  
-    and I was too dumb to understand it earlier.
-  </p>
-  <button onclick="nextPage()">Next ✨</button>
+  <div class="page-content">
+    <img src="pic2.jpg">
+    <h1>Happy Birthday Sristhi 🎂</h1>
+    <p>
+      We were unknown to each other in school...  
+      and honestly, I’m really glad we met.  
+      I’m so glad you took the first step to talk to me.  
+      I’m glad you were always there beside me.  
+      It’s like you predicted the future...  
+      and I was too dumb to understand it earlier.
+    </p>
+    <button onclick="nextPage()">Next ✨</button>
+  </div>
 </div>
 
 <!-- PAGE 3 -->
 <div class="page" style="background: linear-gradient(orange, gold); color: black;">
-  <img src="pic3.jpg">
-  <h1>Thank You 🫶</h1>
-  <p>
-    Thank you for picking my calls  
-    even when I distanced myself.  
-    Thank you for listening to me.  
-    Thank you for caring for me  
-    so selflessly.
-  </p>
-  <button onclick="nextPage()">Next 💫</button>
+  <div class="page-content">
+    <img src="pic3.jpg">
+    <h1>Thank You 🫶</h1>
+    <p>
+      Thank you for picking my calls  
+      even when I distanced myself.  
+      Thank you for listening to me.  
+      Thank you for caring for me  
+      so selflessly.
+    </p>
+    <button onclick="nextPage()">Next 💫</button>
+  </div>
 </div>
 
-<!-- PAGE 4 (LAST PAGE) -->
+<!-- PAGE 4 -->
 <div class="page" style="background: linear-gradient(purple, indigo); color: white;">
-  <img src="pic4.jpg">
-  <h1>Forever Grateful 💜</h1>
-  <p>
-    I couldn’t ask for a better best friend.  
-    I’ll always be grateful for you for the rest of my life.  
-    Happy Birthday, dude 🎂  
-    This year is going to be amazing —  
-    you’ll be doing a job you love.  
-    My best wishes are always with you 💖
-  </p>
+  <div class="page-content">
+    <img src="pic4.jpg">
+    <h1>Forever Grateful 💜</h1>
+    <p>
+      I couldn’t ask for a better best friend.  
+      I’ll always be grateful for you for the rest of my life.  
+      Happy Birthday, dude 🎂  
+      This year is going to be amazing —  
+      you’ll be doing a job you love.  
+      My best wishes are always with you 💖
+    </p>
+  </div>
 </div>
 
 <script>
@@ -176,7 +198,6 @@ function nextPage() {
   if (currentPage < pages.length) {
     pages[currentPage].classList.add("active");
 
-    // LAST PAGE CONFETTI 🎆
     if (currentPage === pages.length - 1) {
       launchConfetti();
     }
