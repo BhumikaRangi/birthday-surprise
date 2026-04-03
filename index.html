@@ -28,28 +28,35 @@ body {
 }
 
 @keyframes fade {
-  from {opacity: 0;}
-  to {opacity: 1;}
+  from {opacity: 0; transform: scale(0.95);}
+  to {opacity: 1; transform: scale(1);}
 }
 
-h1 {
-  font-size: 2.5rem;
-}
+h1 { font-size: 2.2rem; }
 
 p {
-  font-size: 1.2rem;
-  max-width: 300px;
+  font-size: 1.1rem;
+  max-width: 320px;
+  line-height: 1.6;
 }
 
 button {
   margin-top: 20px;
-  padding: 12px 25px;
+  padding: 10px 20px;
   border: none;
   background: white;
   color: black;
-  font-size: 16px;
-  border-radius: 25px;
+  border-radius: 20px;
   cursor: pointer;
+}
+
+/* Images */
+img {
+  width: 220px;
+  height: auto;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 
 /* Floating hearts */
@@ -68,61 +75,66 @@ button {
 
 <body>
 
-<!-- Hearts -->
 <script>
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "💖";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 20 + 15 + "px";
   document.body.appendChild(heart);
 
-  setTimeout(() => {
-    heart.remove();
-  }, 5000);
+  setTimeout(() => heart.remove(), 5000);
 }, 300);
 </script>
 
-<!-- Page 1 -->
+<!-- Page 1 (NO IMAGE) -->
 <div class="page active" style="background: linear-gradient(pink, hotpink); color: white;">
-  <h1>Hey Beautiful 💕</h1>
-  <p>I made something special just for you...</p>
+  <h1>Hey... 💕</h1>
+  <p>This is a little surprise for you 🎁</p>
   <button onclick="nextPage()">Tap 💖</button>
 </div>
 
 <!-- Page 2 -->
 <div class="page" style="background: linear-gradient(red, darkred); color: white;">
-  <h1>Happy Birthday 🎂</h1>
-  <p>You are one of the most important people in my life ❤️</p>
-  <button onclick="nextPage()">Next 🎉</button>
+  <img src="pic2.jpg">
+  <h1>From Strangers ➝ Best Friends ❤️</h1>
+  <p>
+    We were unknown to each other in school...  
+    and honestly, I’m really glad we met.  
+    I’m so glad you took the first step to talk to me.  
+    I’m glad you were always there beside me.  
+    It’s like you predicted the future...  
+    and I was too dumb to understand it earlier.
+  </p>
+  <button onclick="nextPage()">Next ✨</button>
 </div>
 
 <!-- Page 3 -->
 <div class="page" style="background: linear-gradient(orange, gold); color: black;">
-  <h1>You Matter ✨</h1>
-  <p>Your smile can literally fix my whole day 😊</p>
+  <img src="pic3.jpg">
+  <h1>Thank You 🫶</h1>
+  <p>
+    Thank you for picking my calls  
+    even when I distanced myself.  
+    Thank you for listening to me.  
+    Thank you for caring for me  
+    so selflessly.
+  </p>
   <button onclick="nextPage()">Next 💫</button>
 </div>
 
 <!-- Page 4 -->
 <div class="page" style="background: linear-gradient(purple, indigo); color: white;">
-  <h1>Thank You 💜</h1>
-  <p>For every laugh, every moment, every memory 🫶</p>
-  <button onclick="nextPage()">Next 🎁</button>
-</div>
-
-<!-- Page 5 -->
-<div class="page" style="background: linear-gradient(yellow, orange); color: black;">
-  <h1>I Love You 💛</h1>
-  <p>You deserve all the happiness in the world 💫</p>
-  <button onclick="nextPage()">Last One 👀</button>
-</div>
-
-<!-- Final Page -->
-<div class="page" style="background: linear-gradient(green, teal); color: white;">
-  <h1>Enjoy Your Day 🎉</h1>
-  <p>This year is going to be YOUR year 💚</p>
+  <img src="pic4.jpg">
+  <h1>Forever Grateful 💜</h1>
+  <p>
+    I couldn’t ask for a better best friend.  
+    I’ll always be grateful for you for the rest of my life.  
+    Happy Birthday, dude 🎂  
+    This year is going to be amazing —  
+    you’ll be doing a job you love.  
+    My best wishes are always with you 💖
+  </p>
 </div>
 
 <script>
