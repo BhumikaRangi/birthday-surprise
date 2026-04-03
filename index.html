@@ -16,12 +16,12 @@ body {
   overflow: hidden;
 }
 
-/* FIXED MOBILE LAYOUT */
+/* MOBILE PERFECT */
 .page {
   display: none;
   height: 100dvh;
   width: 100%;
-  overflow-y: auto;   /* ENABLE SCROLL */
+  overflow-y: auto;
   box-sizing: border-box;
   padding: 30px 20px;
   animation: fade 0.8s;
@@ -104,7 +104,10 @@ img {
 
 <body>
 
-<!-- HEARTS -->
+<!-- 🎵 MUSIC -->
+<audio id="music" src="song.mp3" loop></audio>
+
+<!-- 💖 HEARTS -->
 <script>
 setInterval(() => {
   const heart = document.createElement("div");
@@ -192,6 +195,13 @@ function launchConfetti() {
 }
 
 function nextPage() {
+  const music = document.getElementById("music");
+
+  // play music after first tap (iPhone compatible)
+  if (music.paused) {
+    music.play();
+  }
+
   pages[currentPage].classList.remove("active");
   currentPage++;
 
