@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 🎉</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      color: white;
+    }
+
+    .page {
+      display: none;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding: 20px;
+    }
+
+    .active {
+      display: flex;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: white;
+      color: black;
+      font-size: 16px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Page 1 -->
+  <div class="page active" style="background-color: pink;">
+    <h1>Hey Bestie 💕</h1>
+    <p>I have something special for you...</p>
+    <button onclick="nextPage()">Tap here 💖</button>
+  </div>
+
+  <!-- Page 2 -->
+  <div class="page" style="background-color: red;">
+    <h1>Happy Birthday 🎂</h1>
+    <p>You mean the world to me ❤️</p>
+    <button onclick="nextPage()">Next 🎉</button>
+  </div>
+
+  <!-- Page 3 -->
+  <div class="page" style="background-color: orange;">
+    <h1>You are Amazing ✨</h1>
+    <p>Never forget how special you are!</p>
+    <button onclick="nextPage()">Next 💫</button>
+  </div>
+
+  <!-- Page 4 -->
+  <div class="page" style="background-color: purple;">
+    <h1>Thank You 💜</h1>
+    <p>For always being there for me 🫶</p>
+    <button onclick="nextPage()">Next 🎁</button>
+  </div>
+
+  <!-- Page 5 -->
+  <div class="page" style="background-color: yellow; color: black;">
+    <h1>I Love You 💛</h1>
+    <p>Hope your day is as beautiful as you!</p>
+    <button onclick="nextPage()">Last One 👀</button>
+  </div>
+
+  <!-- Final Page -->
+  <div class="page" style="background-color: green;">
+    <h1>Enjoy Your Day 🎉</h1>
+    <p>This is just the beginning of an amazing year ahead 💚</p>
+  </div>
+
+  <script>
+    let currentPage = 0;
+    const pages = document.querySelectorAll(".page");
+
+    function nextPage() {
+      pages[currentPage].classList.remove("active");
+      currentPage++;
+      if (currentPage < pages.length) {
+        pages[currentPage].classList.add("active");
+      }
+    }
+  </script>
+
+</body>
+</html>
